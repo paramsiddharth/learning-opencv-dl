@@ -50,3 +50,10 @@ else:
 warped = four_point_transform(orig, screen_contour.reshape(4, 2) * ratio)
 cv2.imshow('Bird-eye view', warped)
 cv2.waitKey(0)
+
+# Recognize and display text
+try:
+	text = image_to_string(warped)
+	print(str(text))
+except Exception as e:
+	print(e, file=stderr)
